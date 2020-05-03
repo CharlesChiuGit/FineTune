@@ -28,4 +28,4 @@ def check_directory(directory):
         os.makedirs(directory_path)
 
 
-check_directory(EXP_NAME)
+# check_directory(EXP_NAME)
