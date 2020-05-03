@@ -11,7 +11,6 @@ COORD = "Spherical"  # "Cartesian" "Spherical"
 LOSS = "ssim"  # "MSE" "cos_sim" "ssim"
 EXP_NAME = "{}_{}".format(COORD, LOSS)
 EPOCH = 500
-SIZE = 800
 
 # Set the cuda device
 DEVICE = torch.device("cuda:{}".format(0))

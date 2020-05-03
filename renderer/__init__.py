@@ -6,15 +6,15 @@ from pytorch3d.renderer import (
     DirectionalLights, TexturedSoftPhongShader
 )
 
-from config import FOV, EPOCH, SIZE, DEVICE
+from config import FOV, EPOCH, DEVICE
 from helper import camera_direction, get_cpu_image
 
 
-def build_renderer():
+def build_renderer(_image_size):
     # Initialize an OpenGL perspective camera.
     cameras = OpenGLPerspectiveCameras(device=DEVICE, degrees=True, fov=FOV, znear=1e-4, zfar=100)
 
-    raster_settings = RasterizationSettings(image_size=SIZE, blur_radius=0.0, faces_per_pixel=1, bin_size=0)
+    raster_settings = RasterizationSettings(image_size=_image_size, blur_radius=0.0, faces_per_pixel=1, bin_size=0)
 
     lights = DirectionalLights(device=DEVICE, direction=((-40, 200, 100),), ambient_color=((0.5, 0.5, 0.5),),
                                diffuse_color=((0.5, 0.5, 0.5),), specular_color=((0.0, 0.0, 0.0),), )
