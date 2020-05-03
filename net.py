@@ -12,9 +12,9 @@ class Model(nn.Module):
         self.device = mesh.device
         self.renderer = renderer
 
-        image_ref = torch.from_numpy(image_ref.astype(np.float32))  # (1, SIZE, SIZE, 4)
+        image_ref = torch.from_numpy(image_ref.astype(np.float32))
         self.register_buffer('image_ref', image_ref)
-        self.gray_image_ref = self.image_ref[..., :3].unsqueeze(0).to(self.device)
+        self.gray_image_ref = self.image_ref[..., :3].unsqueeze(0).to(self.device)  # got (1, SIZE, SIZE, 3)
 
         self.dist = nn.Parameter(
             torch.from_numpy(np.array(init_pos[0], dtype=np.float32)).to(mesh.device), requires_grad=True)
