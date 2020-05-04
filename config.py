@@ -9,7 +9,7 @@ LR = 1e-3
 # LR = 0.05
 COORD = "Spherical"  # "Cartesian" "Spherical"
 LOSS = "ssim"  # "MSE" "cos_sim" "ssim"
-EXP_NAME = "{}_{}".format(COORD, LOSS)
+EXP_NAME = "{}_{}_9_potential".format(COORD, LOSS)
 EPOCH = 500
 
 # Set the cuda device

@@ -4,7 +4,6 @@ import os
 
 from net import Model
 from config import FOV, LR, EPOCH, DEVICE, OBJ_filename
-from helper import camera_direction
 from renderer.io import load_moon_mesh
 from renderer import build_renderer, render_single_image
 

@@ -27,12 +27,12 @@ def build_renderer(_image_size):
 
 def render_single_image(mesh, renderer, pos):
     # print(pos)
-    u_x, u_y, u_z = camera_direction(pos[0][0], pos[0][1], pos[0][2], 0, 0, 0)
-    R, T = look_at_view_transform(eye=pos,
-                                  at=((0, 0, 0),),
-                                  up=((u_x, u_y, u_z),), device=DEVICE)
+    R, T = look_at_view_transform(dist=pos[0], elev=pos[1], azim=pos[2],
+                                  at=((pos[3], pos[4], pos[5]),),
+                                  up=((pos[6], pos[7], pos[8]),),
+                                  device=DEVICE)
     image = renderer(meshes_world=mesh.clone(), R=R, T=T)
 
-    image = get_cpu_image(image)
+    image = get_cpu_image(image)  # (size, size, 3)
 
     return image
